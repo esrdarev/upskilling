@@ -65,7 +65,10 @@ def main(args):
     logger.info("Starting site generation...")
     logger.info(args)
     logger.info("Opening syllabus.yml...")
-    with open("data/syllabus.yml", "r") as syllabus_file:
+
+## PUT THIS BACK LATER!!!!!####
+
+    with open("/home/tofts/git/upskilling/data/syllabus.yml", "r") as syllabus_file:
         syllabus = yaml.safe_load(syllabus_file)
 
     logger.info("Found the following modules:")
@@ -73,7 +76,7 @@ def main(args):
         logger.info(f"...{syllabus['modules'][module]['name']}")
 
     logger.info("Opening squad.yml...")
-    with open("data/squad.yml", "r") as squad_file:
+    with open("/home/tofts/git/upskilling/data/squad.yml", "r") as squad_file:
         squad = yaml.safe_load(squad_file)
 
     for member in squad['members']:
@@ -81,7 +84,7 @@ def main(args):
         logger.info(f"...{squad['members'][member]}")
 
     logger.info("Processing index.html template...")
-    with open("templates/index.html") as index_template_file:
+    with open("/home/tofts/git/upskilling/templates/index.html") as index_template_file:
         index_template = index_template_file.read()
 
     index_template = module_list(index_template, syllabus, squad)
@@ -89,16 +92,16 @@ def main(args):
     index_template = member_progress_list(index_template, syllabus, squad)
 
     logger.info("Writing completed template out...")
-    with open("docs/index.html", "w") as index_output_file:
+    with open("/home/tofts/git/upskilling/docs/index.html", "w") as index_output_file:
         index_output_file.write(index_template)
 
     logger.info("Generating member pages...")
-    with open("templates/member-page.html", "r") as member_template_file:
+    with open("/home/tofts/git/upskilling/templates/member-page.html", "r") as member_template_file:
         member_page_template = member_template_file.read()
     generate_member_pages(member_page_template, syllabus, squad)
 
     logger.info("Generating task detail pages...")
-    with open("templates/task-details.html", "r") as task_details_file:
+    with open("/home/tofts/git/upskilling/templates/task-details.html", "r") as task_details_file:
         task_details_template = task_details_file.read()
     generate_task_details_pages(task_details_template, syllabus, squad)
 
@@ -110,7 +113,7 @@ def generate_downloads(syllabus, squad):
     # Squad progress download
     squad_pdf = PDF(format='A4', unit='mm')
     squad_pdf.details(syllabus, squad)
-    squad_pdf.output('docs/squad_progress.pdf', 'F')
+    squad_pdf.output('/home/tofts/git/upskilling/docs/squad_progress.pdf', 'F')
 
 
 def generate_task_details_pages(task_details_template, syllabus, squad):
@@ -126,14 +129,14 @@ def generate_task_details_pages(task_details_template, syllabus, squad):
             task = module['tasks'][task_key]
             if 'task_details' in task.keys():
                 print(task)
-                with open('data/' + task['task_details'], "r") as task_details_markdown:
+                with open('/home/tofts/git/upskilling/data/' + task['task_details'], "r") as task_details_markdown:
                     md = task_details_markdown.read()
                     html = markdown(md)
             else:
                 html = "Task details not available!"
                 
             output = output.replace("{task-details}", html)
-            file_name = f"docs/{task_key}-details.html"
+            file_name = f"/home/tofts/git/upskilling/docs/{task_key}-details.html"
             with open(file_name, "w") as task_details_output_file:
                 task_details_output_file.write(output)
                     
@@ -147,7 +150,7 @@ def generate_member_pages(member_page_template, syllabus, squad):
 
 
 def generate_member_progress(member_key, member, member_page_template, syllabus, squad):
-    file_name = f"docs/{member_key}-progress.html"
+    file_name = f"/home/tofts/git/upskilling/docs/{member_key}-progress.html"
     output = member_page_template
     member_progress = ""
 
@@ -273,8 +276,13 @@ def member_progress_list(index_template, syllabus, squad):
         latest_task_code = None
         member = squad['members'][member_key]
         if member['tasks'] == "None":
-            latest_task = "None"
-            latest_task_long = "Not started yet"
+            ## Admins don't have to complete tasks
+            if member == "":
+                latest_task = "Admin"
+                latest_task_long = "Administrator"
+            else:
+                latest_task = "None"
+                latest_task_long = "Not started yet"
         else:
             latest_task_code = list(member['tasks'])[-1]
             latest_task = get_task_from_code(latest_task_code, syllabus)
@@ -289,7 +297,6 @@ def member_progress_list(index_template, syllabus, squad):
         member_progress +=  "        </div>"
         member_progress +=  "        <div class=\"post-text\">"
         member_progress += f"            <h3><a href=\"{member_key}-progress.html\">{latest_task_long}</a></h3>"
-        member_progress += f"            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>"
         member_progress +=  "        </div>"
         member_progress +=  "    </div>"
         member_progress +=  "</div>"
@@ -331,7 +338,7 @@ def module_list(index_template, syllabus, squad):
     for module_key in syllabus['modules']:
         module = syllabus['modules'][module_key]
         module_list += f"<!-- service box begin -->"
-        module_list += f"<div class=\"feature-box mb30\">"
+        module_list += f"<div class=\"feature-box mb30\" onclick=\"window.location='#section-tasks';\">"
         module_list += f"    <div class=\"inner\">"
         module_list += f"        <div class=\"text\">"
         module_list += f"            <i class=\"{module['font-awesome-icon']} id-color\"></i>"

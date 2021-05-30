@@ -1,4 +1,4 @@
-# Codewars
+# Go 004 - Codewars
 
 Codewars is an interactive programming training resource that covers a great many languages, including Golang, and is an excellent way to improve your coding skills. This task will cover signing up to Codewars, selecting your desired languages (must include Go), and completing your first _kata_, or task. 
 

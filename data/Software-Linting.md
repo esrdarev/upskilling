@@ -1,4 +1,4 @@
-# Linting
+# SE 001 - Linting
 
 lint, or a linter, is a tool that analyzes source code to flag programming errors, bugs, stylistic errors, and suspicious constructs. 
 https://en.wikipedia.org/wiki/Lint(software)

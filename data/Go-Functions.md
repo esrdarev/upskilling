@@ -1,4 +1,4 @@
-# Functions in Go
+# Go 002 - Functions in Go
 
 Functions in Go operate similarly to functions in other languages, with the noticeable detail that the keyword used to define them is not `function` but `func`. Also, note how the return type is specified *after* the name of the function. Here is an example:
 

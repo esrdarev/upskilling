@@ -1,4 +1,4 @@
-# Hello, world!
+# Go 001 - Hello, world!
 
 Welcome to the first upskilling task in the Project Snowden directed upskilling platform. In this task, you will need to set up your Go environment, create a basic script and then run it to make sure you're setup is ready to go.
 

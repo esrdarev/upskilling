@@ -1,4 +1,4 @@
-# Packages
+# Go 003 - Packages
 
 Go, like a lot of langauges, operates on the principle of reusable pieces of code named Packages, however Go also uses the concept of Go Modules, which is an extra distinct layer in the hierarchy above packages. A Go Module is a collection of Go Packages.
 
