@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Project Snowden - Directed Upskilling Tracker</title>
+	<!-- Modernizr -->
+	<script src="js/modernizr.js"></script>
+	<!-- Open Sans from Google Webfonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<!-- Main styles file -->
+	<link rel="stylesheet" href="css/styles.css" />
+	<!-- Icons via Font Awesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body>
+	<!-- Animated background -->
+	<canvas id="bg-canvas"></canvas>
+	
+	<!-- First screen -->
+	<div class="splash">
+		<div class="centered-unit">
+			<div class="container">
+				<!-- Main header -->
+				<h1>The Project Snowden Directed Upskilling Tracker will launch soon!</h1>
+				<!-- Sub header -->
+				<p class="lead">A modern way to track directed upskilling for projects.</p>
+				
+				<!-- Countdown -->
+				<div class="countdown large">
+					<!-- Days -->
+					<div class="time days">
+						<div class="value">00</div>
+						<div class="unit">Days</div>
+					</div>
+					<!-- Hours -->
+					<div class="time hours">
+						<div class="value">00</div>
+						<div class="unit">Hours</div>
+					</div>
+					<!-- Minutes -->
+					<div class="time minutes">
+						<div class="value">00</div>
+						<div class="unit">Minutes</div>
+					</div>
+					<!-- Seconds -->
+					<div class="time seconds">
+						<div class="value">00</div>
+						<div class="unit">Seconds</div>
+					</div>
+				</div>
+				<!-- Countdown end -->
+			</div>	
+		</div>
+	</div>
+	
+	<!-- Second screen -->
+	<div class="overlap">
+	
+		<!-- Link "Scroll down to learn more" -->
+		<a href="" class="more">Scroll down <i class="fa fa-chevron-down"></i> to learn more</a>
+		
+		<!-- Detailed info -->
+		<div class="container few-words">
+			<div class="row">
+				<!-- First column -->
+				<div class="col col-heading">
+					<!-- Detailed info -->
+					<h2>Project Snowden's own directed upskilling platform!</h2>
+				</div>
+				<!-- First column end -->
+				
+				<!-- Second column -->
+				<div class="col col-content">
+					<p>Welcome to the placeholder for Project Snowden's very own directed upskilling platform. Here you will
+						find details on available directed upskilling tasks and your progress as they become available. This
+						provide a record of tasks that each squad member has undertaken under various modules as the project 
+						has moved from one phase to the next.
+					</p>
+				</div>
+				<!-- Second column end -->
+				
+				<!-- Third column -->
+				<div class="col col-contacts">
+					<img src="images/50-Awards-and-Badges_9.png" style="width: 200px; margin-left: auto; margin-right: auto; display: block;" />
+				</div>
+				<!-- Third column end -->
+			</div>
+		</div>
+		<!-- Detailed info block end -->
+		<!-- Footer -->
+		<div class="footer">
+			<div class="container">
+				&copy; 2021 Project Snowden/Deakin University. Written by A. Phillips.
+			</div>
+		</div>
+		<!-- Footer end -->
+	</div>
+	
+	<!-- JavaScripts -->
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/countdown.js"></script>
+	<script src="js/bezierCanvas.js"></script>
+	<script src="js/notifyMe.js"></script>
+	
+	<script type="text/javascript">
+	$().ready(function(){
+	
+		// Activate countdownTimer plugin on a '.countdown' element
+		$(".countdown").countdownTimer({
+			// Set the end date for the countdown
+			endTime: new Date("April 23, 2021 17:00 UTC+1000")
+		});
+		
+		// Activate bezierCanvas plugin on a #bg-canvas element
+		$("#bg-canvas").bezierCanvas({
+			maxStyles: 10,
+			maxLines: 100,
+			lineSpacing: 1,
+			colorBase: {r: 100,g: 100,b: 100},
+			colorVariation: {r: 150, g: 120, b: 150},
+			delayVariation: 0.5,
+			globalAlpha: 0.5,
+			globalSpeed: 500,
+		});
+		
+		// Add handler on 'Scroll down to learn more' link
+		$().ready(function(){
+			$(".overlap .more").click(function(e){
+				e.preventDefault();
+				$("body,html").animate({scrollTop: $(window).height()});
+			});
+		});		
+
+		
+	});
+	</script>
+
+</body>
+</html>

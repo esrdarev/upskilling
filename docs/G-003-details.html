@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <title>Project Snowden - Directed Upskilling Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+    <!-- CSS Files
+    ================================================== -->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.transitions.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/coloring.css" type="text/css">
+    <link rel="stylesheet" href="css/project_styles.css" type="text/css">
+	<script src="https://kit.fontawesome.com/aec572d835.js" crossorigin="anonymous"></script>
+
+    <!-- color scheme -->
+    <link rel="stylesheet" href="css/colors/red.css" type="text/css">
+</head>
+
+<body id="homepage" class="homepage">
+
+    <div id="wrapper" class="fullwidth no-padding">
+		
+		<div id="bg-overlay"></div>
+		
+        <div id="main">
+
+            <!-- TOP BAR BEGIN -->
+            <div id="top-bar" class="transparent dark">
+
+                <div id="logo">
+                    <a href="index.html">Project Snowden</a>
+                </div>
+
+                <!-- Button that links to next task -->
+		<button class="btn-primary" onclick="window.location='G-004-details.html';">
+		Next
+		</button>
+
+                <span id="menu-btn">
+					<span class="lt"></span>
+					<span class="lm"></span>
+					<span class="lb"></span>
+				</span>
+
+                <!-- <div id="mp-col">
+                    <a href="#" class="btn-download light"><span class="id-color"><i class="fa fa-file-pdf-o"></i></span>Download CV</a>
+                </div> -->
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- TOP BAR CLOSE -->
+
+            <!-- CONTENT BEGIN -->
+            <div id="content">
+                <!-- <div class="social-icons-fixed">
+                    <div class="sc-inner">
+                        <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div> -->
+
+                <!-- section begin -->
+                <section id="section-home" aria-label="section" class="full-height no-top no-bottom text-light" data-bgimage="url(images/background/2.jpg)">
+					<div id="particles-js"></div>
+                    <div class="overlay-bg t50">
+                        <div class="middle">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12 text-center" style="border:1px solid rgb(70,70,70); border-radius: 5px; background: rgb(20,20,20);">
+                                        <p class="lead"><span class="id-color">Task G-003 Details</span></p>
+                                        <div class="spacer20"></div>
+                                        <div class="task-details">
+                                            <h1>Packages</h1>
+<p>Go, like a lot of langauges, operates on the principle of reusable pieces of code named Packages, however Go also uses the concept of Go Modules, which is an extra distinct layer in the hierarchy above packages. A Go Module is a collection of Go Packages.</p>
+<h2>Creating a Go Module</h2>
+<p>In your terminal, create a new directory named "MyFibModule", and navigate to it. Next, run the command <code>go mod init MyFibModule</code>. This will create a new file named <code>go.mod</code>, which is the basic definition of your new module. </p>
+<p>The directory structure will look like this:</p>
+<ul>
+<li>MyFibModule<ul>
+<li>go.mod</li>
+</ul>
+</li>
+</ul>
+<p>Next, create a folder named Fib, and in here create a file named Fib.go. Now, move the code from the previous task, P-002, for creating an arbitrary Fibonacci sequence into this file and add a package name to the top, so it looks like this:</p>
+<pre>
+package fib
+
+func FibRecurse(n int) int {
+    // Your own code will be here
+}
+</pre>
+
+<p>The directory structure will now look like this:</p>
+<ul>
+<li>MyFibModule<ul>
+<li>go.mod</li>
+<li>Fib<ul>
+<li>Fib.go</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Next, create a main function to use your new package. Create <code>main.go</code> inside the top-level <code>MyFibModule</code> folder, and move the main function from the previous task into here. Next, you need to import your new module:</p>
+<pre>
+package main
+import (
+    "fmt"
+    "MyFibMod/Fib"
+)
+
+func main() {
+    //Existing code.
+}
+</pre>
+
+<p>Finally, change the the call to your recursive function. Let's assume you named your function FibRecurse(...) and it's now happily inside <code>MyFibModule/Fib/Fib.go</code>. To call that function from your module, after it has been imported, you would call <code>Fib.FibRecurse(...)</code>. </p>
+<h2>Caveat!</h2>
+<p>Note that you <strong>must</strong> start your function name with a capital letter! In Go, only functions that start with a capital letter are exported, and therefore available outside of the package itself for use.</p>
+<h2>Resources</h2>
+<p>See the following links for help and more info:</p>
+<ul>
+<li><a href="https://golang.org/doc/tutorial/create-module">Official Go Tutorial for creating a Go module</a></li>
+<li><a href="https://golang.org/doc/tutorial/call-module-code">Call your module code from another module</a></li>
+<li><a href="https://www.callicoder.com/golang-packages/">Callicoder - A beginners guide to Packages in golang</a></li>
+</ul>
+                                        </div>
+                                        <div class="spacer60"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section close -->
+        </div>
+
+        <div id="preloader">
+            <div class="s1">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/easing.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/enquire.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.plugin.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/typed-custom.js"></script>
+	<script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/designesia.js"></script>
+
+</body>
+
+</html>

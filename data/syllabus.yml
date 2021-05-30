@@ -1,0 +1,46 @@
+modules:
+  go:
+    name: "Go"
+    font-awesome-icon: "fas fa-code"
+    description: "Go tasks covering the basics and project specific tasks such as maths and science libraries and basic cryptography."
+    tasks:
+      G-001:
+        long_designation: "Go 001"
+        name: "Hello, world!"
+        task_details: "Go-Hello_World.md"
+        short_description: "Basic setup of a Go development environment and running your first program."
+      G-002:
+        long_designation: "Go 002"
+        name: "Functions"
+        task_details: "Go-Functions.md"
+        short_description: "Going from global scripts entirely in Main() to functions."
+      G-003:
+        long_designation: "Go 003"
+        name: "Packages"
+        task_details: "Go-Packages.md"
+        short_description: "Packaging Go code into reusable parcels."
+      G-004:
+        long_designation: "Go 004"
+        name: "Codewars - Intro Task"
+        task_details: "Go-Codewars.md"
+        short_description: "Signing up to Codewars and completing your first Kata"
+      G-005:
+        long_designation: "Go 005"
+        name: "Codewars - Factorial"
+        task_details: "Go-Codewars-Factorial.md"
+        short_description: "Writing a Go function based off a mathematical model"
+  software-engineering:
+    name: "Software Engineering"
+    font-awesome-icon: "fas fa-user-cog"
+    description: "Learn about basic tasks to help write better software."
+    tasks:
+      S-001:
+        long_designation: "Software Engineering 001"
+        name: "Linting"
+        task_details: "Software-Linting.md"
+        short_description: "Build better software by ensuring your code conforms to basic standards."
+  cloud-infrastructure:
+    name: "Cloud Infrastructure"
+    font-awesome-icon: "fas fa-cloud"
+    description: "The Cloud Infrastructure syllabus is currently being finalised. Please check back soon!"
+  
